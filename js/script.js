@@ -15,23 +15,34 @@ const initBtn = document.querySelector("header button");
 
 
 initBtn.addEventListener("click", function(){
-    const selectOption = document.querySelector("header select").value;
-    init(100);
+    const selectOption = parseInt(document.querySelector("header select").value);
+    colBox.innerHTML="";
+    switch (selectOption){
+        case 1:
+            init(100, 10);
+            break
+        case 2:
+            init(81, 9);
+            break
+        case 3:
+            init(49, 7);
+            break
+    }
     
 })
 
 
-
-function init(number){
-    for(let i = 0 ; i < number ; i++){
-        colBox.append(createBox());
+function init(numberOfBox, boxInRow){
+    for(let i = 0 ; i < numberOfBox ; i++){
+        colBox.append(createBox(boxInRow));
     }
 }
 
 
-function createBox(){
+function createBox(boxPerRow){
     let div = document.createElement("div");
     div.classList.add("box");
+    div.style.width = calcCssWidth(boxPerRow)
     addSequentialNumber(div);
     setNumber(div);
     div.addEventListener("click", function(){
@@ -39,6 +50,10 @@ function createBox(){
         div.classList.add("bg-primary")
     })
     return div
+}
+
+function calcCssWidth(elementPerRow){
+    return `calc(100% / ${elementPerRow})`;
 }
 
 
