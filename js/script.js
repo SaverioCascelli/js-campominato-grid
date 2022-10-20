@@ -13,10 +13,11 @@
 const colBox = document.querySelector(".col"); 
 const initBtn = document.querySelector("header button");
 
+
 initBtn.addEventListener("click", function(){
+    const selectOption = document.querySelector("header select").value;
     init(100);
     
-    printNumber("box");
 })
 
 
@@ -32,6 +33,7 @@ function createBox(){
     let div = document.createElement("div");
     div.classList.add("box");
     addSequentialNumber(div);
+    setNumber(div);
     div.addEventListener("click", function(){
         console.log(this.number);
         div.classList.add("bg-primary")
@@ -76,5 +78,9 @@ function printNumber(className){
     for(let i = 0 ; i < arr.length; i ++){
         arr[i].textContent = arr[i].number;
     }
+}
+
+function setNumber(item){
+    item.textContent = item.number
 }
 
