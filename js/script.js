@@ -13,9 +13,14 @@
 const colBox = document.querySelector(".col"); 
 const initBtn = document.querySelector("header button");
 
-addEventListener("click", function(){
+initBtn.addEventListener("click", function(){
     init(100);
+    addNumber("box");
+    getNumber("box");
+    printNumber("box");
 })
+
+
 
 
 function init(number){
@@ -30,3 +35,25 @@ function createBox(){
     div.classList.add("box");
     return div
 }
+
+function addNumber(className){
+    const arr = document.getElementsByClassName(className);
+    for(let i = 0 ; i < arr.length; i ++){
+        arr[i].number = i+1;
+    }
+}
+
+function getNumber(className){
+    const arr = document.getElementsByClassName(className);
+    for(let i = 0 ; i < arr.length; i ++){
+        console.log(arr[i].number);
+    }
+}
+
+function printNumber(className){
+    const arr = document.getElementsByClassName(className);
+    for(let i = 0 ; i < arr.length; i ++){
+        arr[i].textContent = arr[i].number;
+    }
+}
+
