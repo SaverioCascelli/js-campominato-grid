@@ -16,7 +16,6 @@ const initBtn = document.querySelector("header button");
 initBtn.addEventListener("click", function(){
     init(100);
     addNumber("box");
-    getNumber("box");
     printNumber("box");
 })
 
@@ -33,6 +32,9 @@ function init(number){
 function createBox(){
     let div = document.createElement("div");
     div.classList.add("box");
+    div.addEventListener("click", function(){
+        console.log(this.number);
+    })
     return div
 }
 
@@ -43,7 +45,7 @@ function addNumber(className){
     }
 }
 
-function getNumber(className){
+function getAllNumber(className){
     const arr = document.getElementsByClassName(className);
     for(let i = 0 ; i < arr.length; i ++){
         console.log(arr[i].number);
