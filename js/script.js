@@ -14,6 +14,12 @@ const colBox = document.querySelector(".col");
 const initBtn = document.querySelector("header button");
 
 
+/**
+ * take the value of header select and start init in dependat of the value
+ * value 1 100box in 10 per row
+ * value 2 81box in 9 per row
+ * value 3 49box in 7 per row
+ */
 initBtn.addEventListener("click", function(){
     const selectOption = parseInt(document.querySelector("header select").value);
     colBox.innerHTML="";
