@@ -11,12 +11,18 @@
 
 
 const colBox = document.querySelector(".col"); 
+const initBtn = document.querySelector("header button");
 
-init();
+addEventListener("click", function(){
+    init(100);
+})
 
-function init(){
-  
-    colBox.append(createBox());
+
+function init(number){
+    for(let i = 0 ; i < number ; i++){
+        colBox.append(createBox());
+    }
+    
 }
 
 function createBox(){
