@@ -12,13 +12,15 @@
 
 const colBox = document.querySelector(".col"); 
 
+init();
 
 function init(){
-    
+  
+    colBox.append(createBox());
 }
 
-function createBox(father){
-let div = document.createElement("div");
-div.classList.add("box");
-father.append(div);
+function createBox(){
+    let div = document.createElement("div");
+    div.classList.add("box");
+    return div
 }
