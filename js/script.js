@@ -31,14 +31,22 @@ initBtn.addEventListener("click", function(){
     
 })
 
-
+/**
+ * create and append box in colBox
+ * @param {numb} numberOfBox 
+ * @param {numb} boxInRow 
+ */
 function init(numberOfBox, boxInRow){
     for(let i = 0 ; i < numberOfBox ; i++){
         colBox.append(createBox(boxInRow));
     }
 }
 
-
+/**
+ * create a box who return it's number in console when clicked 
+ * @param {numb} boxPerRow 
+ * @returns 
+ */
 function createBox(boxPerRow){
     let div = document.createElement("div");
     div.classList.add("box");
@@ -52,15 +60,29 @@ function createBox(boxPerRow){
     return div
 }
 
+/**
+ * return a string of "style.width" for the css
+ * @param {numb} elementPerRow 
+ * @returns 
+ */
 function calcCssWidth(elementPerRow){
     return `calc(100% / ${elementPerRow})`;
 }
 
-
+/**
+ * 
+ * @param {*} item 
+ * @returns return the value of number of the item
+ */
 function getNumber(item){
     return item.number
 }
 
+/**
+ * create an array of item class in html, get's the value of the last item 
+ * @param {class} className 
+ * @returns the last item.value +1 , or 0 if there are not
+ */
 function getLastNumber(className){
     const arr = document.getElementsByClassName(className);
     const lastItem = arr[arr.length-1];
@@ -74,6 +96,10 @@ function addSequentialNumber(item){
 
 }
 
+/**
+ * add a sequential serie of number in every class item from 0
+ * @param {class} className 
+ */
 function addNumbers(className){
     const arr = document.getElementsByClassName(className);
     for(let i = 0 ; i < arr.length; i ++){
@@ -81,6 +107,10 @@ function addNumbers(className){
     }
 }
 
+/**
+ * get a console log of every class item number in html
+ * @param {class} className 
+ */
 function getAllNumber(className){
     const arr = document.getElementsByClassName(className);
     for(let i = 0 ; i < arr.length; i ++){
@@ -88,6 +118,10 @@ function getAllNumber(className){
     }
 }
 
+/**
+ * set the number of every class item in it's textContent
+ * @param {class} className 
+ */
 function printNumber(className){
     const arr = document.getElementsByClassName(className);
     for(let i = 0 ; i < arr.length; i ++){
@@ -95,6 +129,10 @@ function printNumber(className){
     }
 }
 
+/**
+ * set the number of the item in it's textContent
+ * @param {} item 
+ */
 function setNumber(item){
     item.textContent = item.number
 }
