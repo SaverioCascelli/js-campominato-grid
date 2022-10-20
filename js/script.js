@@ -15,10 +15,9 @@ const initBtn = document.querySelector("header button");
 
 initBtn.addEventListener("click", function(){
     init(100);
-    addNumber("box");
+    
     printNumber("box");
 })
-
 
 
 
@@ -26,19 +25,38 @@ function init(number){
     for(let i = 0 ; i < number ; i++){
         colBox.append(createBox());
     }
-    
 }
+
 
 function createBox(){
     let div = document.createElement("div");
     div.classList.add("box");
+    addSequentialNumber(div);
     div.addEventListener("click", function(){
         console.log(this.number);
     })
     return div
 }
 
-function addNumber(className){
+
+function getNumber(item){
+    return item.number
+}
+
+function getLastNumber(className){
+    const arr = document.getElementsByClassName(className);
+    const lastItem = arr[arr.length-1];
+    
+    return lastItem ? getNumber(lastItem) : 0
+}
+
+function addSequentialNumber(item){
+    let lastNumb = getLastNumber("box");
+    item.number = lastNumb +1;
+
+}
+
+function addNumbers(className){
     const arr = document.getElementsByClassName(className);
     for(let i = 0 ; i < arr.length; i ++){
         arr[i].number = i+1;
