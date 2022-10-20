@@ -34,6 +34,7 @@ function createBox(){
     addSequentialNumber(div);
     div.addEventListener("click", function(){
         console.log(this.number);
+        div.classList.add("bg-primary")
     })
     return div
 }
